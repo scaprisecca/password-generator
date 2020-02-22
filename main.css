@@ -1,0 +1,38 @@
+body {
+    background-color: #C0BDA5;
+    margin: 0;
+  }
+  
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    flex-direction: column;
+    border: solid black 2px;
+    margin: 0;
+    padding: 1rem;
+    background-color: 
+  }
+  
+  .form {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 1rem;
+    column-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btn {
+    grid-column: 1 / -1;
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+    background-color: transparent;
+  }
+  
+  .btn:hover {
+    background-color: #33ccee33;
+  }
