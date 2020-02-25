@@ -7,10 +7,13 @@ const includeNumbers = document.getElementById('includeNumbers');
 const includeSymbols = document.getElementById('includeSymbols');
 const form = document.querySelector('.form');
 const passwordDisplay = document.querySelector('.password-display');
+const copyToClipboard = document.querySelector('.copyPassword');
 
 
 //Adding Event Listeners
 characterAmountContainer.addEventListener('input', snycCharacterAmounts);
+
+copyToClipboard.addEventListener('click', copyContent);
 
 const lowercaseCharCodes = fromLowToHigh(97, 122);
 const uppercaseCharCodes = fromLowToHigh(65, 90);
@@ -58,4 +61,10 @@ function fromLowToHigh(low, high) {
         array.push(i);
     }
     return array;
+}
+
+function copyContent() {
+    let copiedText = passwordDisplay.select();
+    document.execCommand('copy');
+    console.log(copiedText);
 }
