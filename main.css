@@ -1,43 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/*DRY CSS*/
+.gradient {
+  background: #34b6e0;
+  background: -moz-linear-gradient(45deg,  #34b6e0 13%, #775ada 65%);
+  background: -webkit-linear-gradient(45deg,  #34b6e0 13%,#775ada 65%);
+  background: linear-gradient(45deg,  #34b6e0 13%,#775ada 65%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34b6e0', endColorstr='#775ada',GradientType=1 );
+
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Other CSS*/
+
 body {
-    background-color: #cccccc;
-    margin: 0;
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color: #e2f3f5;
+  margin: 0;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.title {
+  font-size: 2.25rem;
+  letter-spacing: .1rem;
+}
   
-  .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .container {
-    flex-direction: column;
-    border: solid black 2px;
-    margin: 0;
-    padding: 1rem;
-    background-color: lightblue;
-  }
-  
-  .form {
-    display: grid;
-    grid-template-columns: auto auto;
-    row-gap: 1rem;
-    column-gap: 2rem;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .btn {
-    grid-column: 1 / -1;
-    border-radius: 1rem;
-    padding: .5rem 1rem;
-    background-color: transparent;
-  }
-  
-  .btn:hover {
-    background-color: #33ccee33;
-  }
+.password-display {
+  background-color: white;
+  width: 400px;
+  height: 50px;
+  border-radius: 1rem;
+  color: black;
+  font-weight: 500;
+  margin: 0;
+}
+
+.button-options {
+  padding: .75rem;
+  margin: 1rem;
+  width: 400px;
+}
+
+.button-options button {
+  border-radius: 1rem;
+  padding: .25rem 1rem;
+  color: white;
+}
+
+.copy-password {
+  float: right;
+}
+
+.container {
+  flex-direction: column;
+  border: solid black 2px;
+  margin: 0;
+  padding: 2rem;
+  background-color: #233598;
+  border-radius: 1rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+#characterAmountNumber {
+  width: 2rem;
+}
+
+.btn {
+  grid-column: 1 / -1;
+  border-radius: 1rem;
+  padding: .5rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 1.1rem;
+}
+
+
+/*Toggle Switch*/
+
+.onoffswitch {
+  position: relative; width: 80px;
+  margin: 0 auto;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 25px; padding: 0; line-height: 25px;
+  font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 12px;
+  background-color: #2DBDED; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 12px;
+  background-color: #EEEEEE; color: #999999;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block; width: 16px; margin: 4.5px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 51px;
+  border: 2px solid #999999; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px; 
+}
