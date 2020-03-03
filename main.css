@@ -24,6 +24,7 @@ body {
   color: white;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
@@ -89,6 +90,14 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: white;
   font-size: 1.1rem;
+}
+
+.displayPasswordHistory {
+  color: black;
+  display: none;
+  max-height: 50vh;
+  overflow: scroll;
+  border: 1px solid black;
 }
 
 

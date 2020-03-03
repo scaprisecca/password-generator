@@ -8,12 +8,25 @@ const includeSymbols = document.getElementById('includeSymbols');
 const form = document.querySelector('.form');
 const passwordDisplay = document.querySelector('.password-display');
 const copyToClipboard = document.querySelector('.copyPassword');
+const passwordHistory = document.querySelector('.passwordHistory');
+const passwordHistoryContainer = document.querySelector('.displayPasswordHistory');
+
+
+//Variables
+let oldPasswordsArray = [];
+const oldPassword = {
+    password: '',
+    date: new Date(),
+    time: '',
+}
 
 
 //Adding Event Listeners
 characterAmountContainer.addEventListener('input', snycCharacterAmounts);
 
 copyToClipboard.addEventListener('click', copyContent);
+
+passwordHistory.addEventListener('click', displayPasswordHistory);
 
 const lowercaseCharCodes = fromLowToHigh(97, 122);
 const uppercaseCharCodes = fromLowToHigh(65, 90);
@@ -31,6 +44,15 @@ form.addEventListener('submit', e => {
 
     const password = createRandomPassword(characterAmount, uppercaseChecked, numbersChecked, symbolsChecked);
     passwordDisplay.innerText = password;
+
+    const tempPassword = Object.create(oldPassword);
+    const tempTime = new Date();
+
+    tempPassword.password = password;
+    tempPassword.date = tempTime.toDateString();
+    tempPassword.time = tempTime.toLocaleTimeString()
+
+    oldPasswordsArray.push(tempPassword);
 })
 
 //Functions
@@ -67,4 +89,18 @@ function copyContent() {
     let copiedText = passwordDisplay.select();
     document.execCommand('copy');
     console.log(copiedText);
+}
+
+
+
+function displayPasswordHistory(){
+    
+    passwordHistoryContainer.style.display = 'block';
+
+    let passwordElement = `
+        ${oldPasswordsArray.map(password => `<p><strong>Password:</strong> ${password.password}</p><p>Created on ${password.date} at ${password.time}</p>`).join('')}
+    `;
+
+    return passwordHistoryContainer.innerHTML = passwordElement;
+    
 }
