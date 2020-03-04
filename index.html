@@ -16,58 +16,61 @@
           <button class="copyPassword gradient">Copy to Clipboard</button>
         </div>
         
-        <form action="#" class="form">
-          <label for="characterAmount">Character Amount</label>
-          <div class="characterAmountContainer flex">
-            <input type="range" name="characterAmount" id="characterAmountRange" min="6" max="50" value="10">
-            <input type="number" name="characterAmount" id="characterAmountNumber" min="6" max="50" value="10">
-          </div>
+          <form action="#" class="form">
+            <label for="characterAmount">Character Amount</label>
+            <div class="characterAmountContainer flex">
+              <input type="range" name="characterAmount" id="characterAmountRange" min="6" max="50" value="10">
+              <input type="number" name="characterAmount" id="characterAmountNumber" min="6" max="50" value="10">
+            </div>
+            
+            <!-- <label for="includeUppercase">Include Uppercase</label>
+            <input type="checkbox" name="includeUppercase" id="includeUppercase"> -->
+  
+            <p class="characterLabel">Include Uppercase</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="includeUppercase" class="onoffswitch-checkbox" id="includeUppercase" unchecked>
+              <label class="onoffswitch-label" for="includeUppercase">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+            
+            <!-- <label for="includeNumbers">Include Numbers</label>
+            <input type="checkbox" name="includeNumbers" id="includeNumbers"> -->
+  
+            <p class="characterLabel">Include Numbers</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="includeNumbers" class="onoffswitch-checkbox" id="includeNumbers">
+              <label class="onoffswitch-label" for="includeNumbers">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+            
+            <!-- <label for="includeSymbols">Include Symbols</label>
+            <input type="checkbox" name="includeSymbols" id="includeSymbols"> -->
+  
+            <p class="characterLabel">Include Symbols</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="includeSymbols" class="onoffswitch-checkbox" id="includeSymbols">
+              <label class="onoffswitch-label" for="includeSymbols">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+  
+            
           
-          <!-- <label for="includeUppercase">Include Uppercase</label>
-          <input type="checkbox" name="includeUppercase" id="includeUppercase"> -->
+            
+            <button type="submit" class="btn gradient">Generate Password</button>
+          </form>
 
-          <p class="characterLabel">Include Uppercase</p>
-          <div class="onoffswitch">
-            <input type="checkbox" name="includeUppercase" class="onoffswitch-checkbox" id="includeUppercase">
-            <label class="onoffswitch-label" for="includeUppercase">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
-          </div>
+          <button class="closePasswordHistoryBtn gradient" hidden>Close Password History</button>
           
-          <!-- <label for="includeNumbers">Include Numbers</label>
-          <input type="checkbox" name="includeNumbers" id="includeNumbers"> -->
-
-          <p class="characterLabel">Include Numbers</p>
-          <div class="onoffswitch">
-            <input type="checkbox" name="includeNumbers" class="onoffswitch-checkbox" id="includeNumbers">
-            <label class="onoffswitch-label" for="includeNumbers">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
-          </div>
-          
-          <!-- <label for="includeSymbols">Include Symbols</label>
-          <input type="checkbox" name="includeSymbols" id="includeSymbols"> -->
-
-          <p class="characterLabel">Include Symbols</p>
-          <div class="onoffswitch">
-            <input type="checkbox" name="includeSymbols" class="onoffswitch-checkbox" id="includeSymbols">
-            <label class="onoffswitch-label" for="includeSymbols">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
+          <div class="displayPasswordHistory">
+            
           </div>
 
-          
-        
-          
-          <button type="submit" class="btn gradient">Generate Password</button>
-          
-        </form>
-      </div>
-      <div class="displayPasswordHistory">
-        <h2>Password History</h2>
       </div>
 
       <script src="script.js"></script>

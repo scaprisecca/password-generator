@@ -10,6 +10,7 @@ const passwordDisplay = document.querySelector('.password-display');
 const copyToClipboard = document.querySelector('.copyPassword');
 const passwordHistory = document.querySelector('.passwordHistory');
 const passwordHistoryContainer = document.querySelector('.displayPasswordHistory');
+const closeBtn = document.querySelector('.closePasswordHistoryBtn');
 
 
 //Variables
@@ -27,6 +28,8 @@ characterAmountContainer.addEventListener('input', snycCharacterAmounts);
 copyToClipboard.addEventListener('click', copyContent);
 
 passwordHistory.addEventListener('click', displayPasswordHistory);
+
+closeBtn.addEventListener('click', closePasswordDisplay);
 
 const lowercaseCharCodes = fromLowToHigh(97, 122);
 const uppercaseCharCodes = fromLowToHigh(65, 90);
@@ -86,9 +89,14 @@ function fromLowToHigh(low, high) {
 }
 
 function copyContent() {
-    let copiedText = passwordDisplay.select();
+    let copiedText = passwordDisplay.innerText;
+    let el = document.createElement('textarea');
+    el.value = copiedText;
+    document.body.appendChild(el);
+    el.select();
     document.execCommand('copy');
     console.log(copiedText);
+    document.body.removeChild(el);
 }
 
 
@@ -96,11 +104,17 @@ function copyContent() {
 function displayPasswordHistory(){
     
     passwordHistoryContainer.style.display = 'block';
+    closeBtn.style.display = "block";
 
     let passwordElement = `
-        ${oldPasswordsArray.map(password => `<p><strong>Password:</strong> ${password.password}</p><p>Created on ${password.date} at ${password.time}</p>`).join('')}
+        <h2 class="passwordHistoryTitle">Password History</h2>
+        ${oldPasswordsArray.map(password => `<p class="pass"><strong>Password:</strong> ${password.password}</p><p class="date">Created on ${password.date} at ${password.time}</p>`).join('')}
     `;
 
     return passwordHistoryContainer.innerHTML = passwordElement;
-    
+}
+
+function closePasswordDisplay() {
+    passwordHistoryContainer.style.display = 'none';
+    closeBtn.style.display = 'none';
 }
